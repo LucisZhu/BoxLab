@@ -1,0 +1,1956 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9233b45d55098a941ad121a64d4593db, type: 3}
+  m_Name: BoxProject
+  m_EditorClassIdentifier: 
+  book:
+    rules:
+    - id: plain
+      name: "\u5E38\u89C4\u5730\u9762"
+      visual: 0
+      colorHex: '#334155'
+      builtIn: 1
+      boundary: 0
+      allowedActors: 3
+      signalActors: 0
+      canEnter:
+        nodes:
+        - parent: -1
+          kind: 0
+          negate: 0
+          actorMask: 3
+          binding: 
+          threshold: 1
+      onEnter: []
+      onLeave: []
+    - id: goal
+      name: "\u76EE\u6807"
+      visual: 1
+      colorHex: '#FBBF24'
+      builtIn: 1
+      boundary: 0
+      allowedActors: 3
+      signalActors: 0
+      canEnter:
+        nodes:
+        - parent: -1
+          kind: 0
+          negate: 0
+          actorMask: 3
+          binding: 
+          threshold: 1
+      onEnter: []
+      onLeave: []
+    - id: ice
+      name: "\u51B0\u9762 \xB7 \u989D\u5916\u6ED1\u884C 3 \u683C"
+      visual: 2
+      colorHex: '#38BDF8'
+      builtIn: 1
+      boundary: 0
+      allowedActors: 3
+      signalActors: 0
+      canEnter:
+        nodes:
+        - parent: -1
+          kind: 0
+          negate: 0
+          actorMask: 3
+          binding: 
+          threshold: 1
+      onEnter:
+      - condition:
+          nodes:
+          - parent: -1
+            kind: 4
+            negate: 0
+            actorMask: 2
+            binding: 
+            threshold: 1
+        actions:
+        - kind: 0
+          directionMode: 0
+          direction: 0
+          distance: 3
+          targetRuleId: 
+          targetBinding: 
+      onLeave: []
+    - id: plate
+      name: "\u538B\u529B\u677F"
+      visual: 3
+      colorHex: '#F59E0B'
+      builtIn: 1
+      boundary: 0
+      allowedActors: 3
+      signalActors: 3
+      canEnter:
+        nodes:
+        - parent: -1
+          kind: 0
+          negate: 0
+          actorMask: 3
+          binding: 
+          threshold: 1
+      onEnter: []
+      onLeave: []
+    - id: turn
+      name: "\u53D7\u63A7\u8F6C\u5411 \xB7 \u4E0A / \u53F3"
+      visual: 4
+      colorHex: '#A78BFA'
+      builtIn: 1
+      boundary: 0
+      allowedActors: 3
+      signalActors: 0
+      canEnter:
+        nodes:
+        - parent: -1
+          kind: 0
+          negate: 0
+          actorMask: 3
+          binding: 
+          threshold: 1
+      onEnter:
+      - condition:
+          nodes:
+          - parent: -1
+            kind: 1
+            negate: 0
+            actorMask: 3
+            binding: 
+            threshold: 1
+          - parent: 0
+            kind: 4
+            negate: 0
+            actorMask: 2
+            binding: 
+            threshold: 1
+          - parent: 0
+            kind: 6
+            negate: 0
+            actorMask: 3
+            binding: switches
+            threshold: 1
+        actions:
+        - kind: 0
+          directionMode: 1
+          direction: 0
+          distance: 1
+          targetRuleId: 
+          targetBinding: 
+      - condition:
+          nodes:
+          - parent: -1
+            kind: 4
+            negate: 0
+            actorMask: 2
+            binding: 
+            threshold: 1
+        actions:
+        - kind: 0
+          directionMode: 1
+          direction: 1
+          distance: 1
+          targetRuleId: 
+          targetBinding: 
+      onLeave: []
+    - id: selective
+      name: "\u4EBA\u7269\u901A\u9053"
+      visual: 5
+      colorHex: '#34D399'
+      builtIn: 1
+      boundary: 0
+      allowedActors: 1
+      signalActors: 0
+      canEnter:
+        nodes:
+        - parent: -1
+          kind: 0
+          negate: 0
+          actorMask: 3
+          binding: 
+          threshold: 1
+      onEnter: []
+      onLeave: []
+    - id: portal-entrance
+      name: "\u4F20\u9001\u5165\u53E3"
+      visual: 6
+      colorHex: '#8B5CF6'
+      builtIn: 1
+      boundary: 0
+      allowedActors: 3
+      signalActors: 0
+      canEnter:
+        nodes:
+        - parent: -1
+          kind: 0
+          negate: 0
+          actorMask: 3
+          binding: 
+          threshold: 1
+      onEnter:
+      - condition:
+          nodes:
+          - parent: -1
+            kind: 4
+            negate: 0
+            actorMask: 2
+            binding: 
+            threshold: 1
+        actions:
+        - kind: 1
+          directionMode: 0
+          direction: 0
+          distance: 3
+          targetRuleId: 
+          targetBinding: 
+      onLeave: []
+    - id: portal-exit
+      name: "\u4F20\u9001\u51FA\u53E3"
+      visual: 7
+      colorHex: '#D8B4FE'
+      builtIn: 1
+      boundary: 0
+      allowedActors: 3
+      signalActors: 0
+      canEnter:
+        nodes:
+        - parent: -1
+          kind: 0
+          negate: 0
+          actorMask: 3
+          binding: 
+          threshold: 1
+      onEnter: []
+      onLeave: []
+    - id: hole
+      name: "\u7A7A\u6D1E"
+      visual: 8
+      colorHex: '#0F172A'
+      builtIn: 1
+      boundary: 0
+      allowedActors: 2
+      signalActors: 0
+      canEnter:
+        nodes:
+        - parent: -1
+          kind: 0
+          negate: 0
+          actorMask: 3
+          binding: 
+          threshold: 1
+      onEnter:
+      - condition:
+          nodes:
+          - parent: -1
+            kind: 4
+            negate: 0
+            actorMask: 2
+            binding: 
+            threshold: 1
+        actions:
+        - kind: 3
+          directionMode: 0
+          direction: 0
+          distance: 3
+          targetRuleId: 
+          targetBinding: 
+      onLeave: []
+    - id: fragile
+      name: "\u574D\u584C\u9053\u8DEF"
+      visual: 9
+      colorHex: '#FB923C'
+      builtIn: 1
+      boundary: 0
+      allowedActors: 3
+      signalActors: 0
+      canEnter:
+        nodes:
+        - parent: -1
+          kind: 0
+          negate: 0
+          actorMask: 3
+          binding: 
+          threshold: 1
+      onEnter: []
+      onLeave:
+      - condition:
+          nodes:
+          - parent: -1
+            kind: 4
+            negate: 0
+            actorMask: 3
+            binding: 
+            threshold: 1
+        actions:
+        - kind: 2
+          directionMode: 0
+          direction: 0
+          distance: 3
+          targetRuleId: hole
+          targetBinding: 
+    - id: gate
+      name: "\u53D7\u63A7\u95E8 \xB7 \u6761\u4EF6\u6210\u7ACB\u5F00\u653E"
+      visual: 10
+      colorHex: '#F59E0B'
+      builtIn: 1
+      boundary: 1
+      allowedActors: 3
+      signalActors: 0
+      canEnter:
+        nodes:
+        - parent: -1
+          kind: 6
+          negate: 0
+          actorMask: 3
+          binding: switches
+          threshold: 1
+      onEnter: []
+      onLeave: []
+    - id: inverse-gate
+      name: "\u53CD\u5411\u95E8 \xB7 \u6761\u4EF6\u4E0D\u6210\u7ACB\u5F00\u653E"
+      visual: 10
+      colorHex: '#FB7185'
+      builtIn: 1
+      boundary: 1
+      allowedActors: 3
+      signalActors: 0
+      canEnter:
+        nodes:
+        - parent: -1
+          kind: 6
+          negate: 1
+          actorMask: 3
+          binding: switches
+          threshold: 1
+      onEnter: []
+      onLeave: []
+  levels:
+  - id: ffb19ee0b88341ec8d90b34fa2f06783
+    name: "01 \xB7 \u7B2C\u4E00\u6B21\u63A8\u52A8"
+    description: "\u65B9\u5411\u952E / WASD \u79FB\u52A8\uFF1B\u628A\u7BB1\u5B50\u63A8\u4E0A\u91D1\u8272\u76EE\u6807\u3002Z
+      \u64A4\u9500\uFF0CR \u91CD\u5F00\u3002"
+    width: 5
+    height: 5
+    cells:
+    - id: 16524315b8784343bf13c44913d86888
+      ruleId: ice
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 2cdc7c8dac3043f992ab1168dd919210
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: b9bbb18a4c314868b95e237aa6611a1c
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: c2a96e1553474fa9b4fa74c0052e69e6
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: ddc2c1eaf60243798c625df88fe8cdc4
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: f2898f47f0214840ba5f1820c35a1bf4
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 5d990a9e826d416383beca33e98b061e
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: d24f869180dd4c7ea712df4b912cccc8
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: a45e71982ce64bee87ef8998ff9a01cd
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 8550c0c35c9543549be872ce3187c863
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: ddc96172f65c494aaf8536ffdc9650be
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: cb932d291ff54d36b70bf638fc7227f0
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: f8b2096eba4e43bca213c5427577fbd8
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 4e258a97a5d647adbb6c48ffe7999037
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: d106d0dc0fe94229a73992849023df34
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 16bf4ba991d14ddc86c8c5cb3a9b443a
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 15d2ae61d01e428bb002694f3612270b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 2eb6be95d6124c7fa8a94a0374913a1b
+      ruleId: goal
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 881007cf3a1d4a93b9706ebc19157b4e
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: d14c282771d14188a62885340c7a4f70
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 34fe246a437e4b5881ab104ff5ae3b53
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: dc469706966d444a97633f72f04e51e3
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: dac3f4a1d59646feaf3c053d59e6dacf
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: e40585c75e1b4943a7f6dd770dbb7fef
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: fe96c938c36c48c39f3cd98e57e562cd
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    edges: []
+    player: 7
+    boxes: 0c000000
+  - id: 39aab04348ec4830a7c019a16d6da737
+    name: "02 \xB7 \u60EF\u6027\u8DEF\u7EBF"
+    description: "\u63A8\u5165\u84DD\u8272\u51B0\u9762\u540E\uFF0C\u7BB1\u5B50\u6CBF\u8FDB\u5165\u65B9\u5411\u989D\u5916\u6ED1\u4E09\u683C\u3002\u4EBA\u7269\u4E0D\u4F1A\u6ED1\u884C\u3002"
+    width: 7
+    height: 5
+    cells:
+    - id: 9f1d16c1ffa14a109f88cca54f69895e
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: fa1096fefdba4ab19d8fe979d05ea36b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: d01e7066ac444b03a098e9c03d114695
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: c60996e5cf3d4184a26b0c1e8ecfcb10
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 977bc1da7bc34db8a7bff72dd3ed40cb
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: e9728d95c20742f58d4559bb06893fdd
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 58e38168879647eeb24a7a20747c8e02
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 4c2a28e634484dac93de957953c02489
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 4cbff9f56f084ead9a3874e484195294
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 0dd421486d124e0e8e4822e0d35eeb96
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 9391d25962b541e9b0d77cf7b7726747
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: bc80ba72aa7142fa939388c8c2035341
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 5807e430257d4be590bf2030354808ce
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: ed565671c1e14be192ebac9c8dcf9265
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 9a32f0d20a944f0fa9c070ceea7b5239
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 6ba773eb2444451799fa7a2ae0568138
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: a35cc96699e74a92ae4c7ad09fd95f35
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: c20e7204aa194a668c3fab2f16753daa
+      ruleId: ice
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: f92b4b2a58e94c418b42888ab2a316b5
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 146381d7764b4926b90aef30eff9bfb7
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: bd1eb975503942bf93968b838e062a7c
+      ruleId: goal
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 7fca4f99ca4e4aa7931448b602ad55eb
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 1889a418ae314521bbbd32ec208c3fe9
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: b8b1049fc18847e481420f31d38bac09
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 78a355c443d94ccbb5d6c52d0d372448
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: b2a4c22384eb412dae0d526e7bc3aaf2
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: cbd936e05cb74bdaa48dcfd7ffb464f6
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 1c00b166722b402881fc06b0de917740
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: bd5d7b04ad964ada9443e349ea4d5b02
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 97482f472781418eaf7942f74064954c
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 0ab8fb626a4b4ac9848d048abcf220fa
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: ee3e958baf624fd68ae3bc05e05256b8
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 091122ca766d41cb9f4cd48ea7ec0830
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 3e442a92b7df429798392595e4cd78bd
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: a71bda253ed740d486afa16357e15125
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    edges:
+    - cell: 16
+      direction: 0
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 9
+      direction: 0
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 17
+      direction: 0
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 10
+      direction: 0
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 18
+      direction: 0
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 11
+      direction: 0
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 19
+      direction: 0
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 12
+      direction: 0
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 20
+      direction: 0
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 13
+      direction: 0
+      kind: 1
+      ruleId: gate
+      bindings: []
+    player: 15
+    boxes: 10000000
+  - id: ab1c14570781454f9e99afab6d3a9984
+    name: "03 \xB7 \u4E34\u65F6\u5C97\u4F4D"
+    description: "\u5148\u8BA9\u4E00\u4E2A\u7BB1\u5B50\u538B\u4F4F\u538B\u529B\u677F\uFF0C\u7EF4\u6301\u901A\u8DEF\uFF1B\u9001\u8FC7\u53E6\u4E00\u4E2A\u7BB1\u5B50\u540E\uFF0C\u56DE\u6536\u538B\u677F\u4E0A\u7684\u7BB1\u5B50\u3002"
+    width: 7
+    height: 5
+    cells:
+    - id: c4a898ee102d4e85a81d476c22123313
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: fa5bc1bb74384390b7a5f128ef777685
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 69b9795dbb534be58cc91b1ebd2375e3
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: b69b5282fc294dbc9af1f4b2be9262c7
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: dce24ed925074c928a9ec5c83efc4b6a
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 1de89fa623d240dcb13f2577332ba63e
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: dc1c860e042a4716961673b3b200c1ee
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 523c2bc9eb2e48bd8cc20bcf99978ae4
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 052fad827342417dbe74b78c28144511
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: e0d755c76c274057965ea0c12e189ea2
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 6a46669f033b446d85ebba1410415f01
+      ruleId: plate
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: ffadafbe13984757b92c1963393bfba3
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 60f9aed76a284750af49165c2e4601aa
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 71baf5949dad4641ad1bec4806e95240
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: bcbf891afc804b16b0b49710ec3eb8aa
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 485d5904bd574cf88e53eae1aa7c9d7b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: d66242a8775d47029a186d776372ad21
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 3575a6d8ba5e400e9394c86265f6e81a
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: dffff2a94029440db08f22f5c71c528e
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: fb164a4872cd4f0896126fed24147f71
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: c3b3eee8fc1347509ab6c73c356b6504
+      ruleId: goal
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: ea6f05efdf4e4592ad5a5446088ed0b0
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: dfe533ce85eb42e38d00081b6d64bc0b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 248d717d70d746bdb6696f2cd5627884
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: dad90ada05ac42bcb7b4a61ec5ba0df8
+      ruleId: goal
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 785f394644524e7b92a4b17548f3fe09
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: a3e048c8d9154809bad0653a6aa80893
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 3f408475b3c44856a66ca0db04fcf07c
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: b16463c3a1064ea4b04972647f1b2815
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: d7e98a780a964dcea8c9624ce3ed0ae8
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: f7b1a2b1e65c49d89efce3809398a5b6
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 2f8dc50a539f47539329751fd65d9d4a
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 7dfd228a2c95412eb65704c61a90c411
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 9c676c5cc4b14d0ba8af8f14cfe77259
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 85f79f976d1547038de3509ff56d454b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    edges:
+    - cell: 4
+      direction: 1
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 11
+      direction: 1
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 25
+      direction: 1
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 32
+      direction: 1
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 18
+      direction: 1
+      kind: 2
+      ruleId: gate
+      bindings:
+      - key: switches
+        cellIds:
+        - 6a46669f033b446d85ebba1410415f01
+    player: 8
+    boxes: 0900000012000000
+  - id: 61f07da72f214f3f84f28e9c280be42b
+    name: "04 \xB7 \u4E00\u5F00\u4E00\u5408"
+    description: "\u4E24\u6247\u95E8\u8BFB\u53D6\u540C\u4E00\u5757\u538B\u529B\u677F\uFF0C\u4E00\u6247\u6B63\u5411\u3001\u4E00\u6247\u53CD\u5411\u3002\u72B6\u6001\u7531\u5F53\u524D\u5360\u7528\u5B9E\u65F6\u51B3\u5B9A\u3002"
+    width: 7
+    height: 5
+    cells:
+    - id: c4a898ee102d4e85a81d476c22123313
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: fa5bc1bb74384390b7a5f128ef777685
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 69b9795dbb534be58cc91b1ebd2375e3
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: b69b5282fc294dbc9af1f4b2be9262c7
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: dce24ed925074c928a9ec5c83efc4b6a
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 1de89fa623d240dcb13f2577332ba63e
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: dc1c860e042a4716961673b3b200c1ee
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 523c2bc9eb2e48bd8cc20bcf99978ae4
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 052fad827342417dbe74b78c28144511
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: e0d755c76c274057965ea0c12e189ea2
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 6a46669f033b446d85ebba1410415f01
+      ruleId: plate
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: ffadafbe13984757b92c1963393bfba3
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 60f9aed76a284750af49165c2e4601aa
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 71baf5949dad4641ad1bec4806e95240
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: bcbf891afc804b16b0b49710ec3eb8aa
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 485d5904bd574cf88e53eae1aa7c9d7b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: d66242a8775d47029a186d776372ad21
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 3575a6d8ba5e400e9394c86265f6e81a
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: dffff2a94029440db08f22f5c71c528e
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: fb164a4872cd4f0896126fed24147f71
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: c3b3eee8fc1347509ab6c73c356b6504
+      ruleId: goal
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: ea6f05efdf4e4592ad5a5446088ed0b0
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: dfe533ce85eb42e38d00081b6d64bc0b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 248d717d70d746bdb6696f2cd5627884
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: dad90ada05ac42bcb7b4a61ec5ba0df8
+      ruleId: goal
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 785f394644524e7b92a4b17548f3fe09
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: a3e048c8d9154809bad0653a6aa80893
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 3f408475b3c44856a66ca0db04fcf07c
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: b16463c3a1064ea4b04972647f1b2815
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: d7e98a780a964dcea8c9624ce3ed0ae8
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: f7b1a2b1e65c49d89efce3809398a5b6
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 2f8dc50a539f47539329751fd65d9d4a
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 7dfd228a2c95412eb65704c61a90c411
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 9c676c5cc4b14d0ba8af8f14cfe77259
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 85f79f976d1547038de3509ff56d454b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    edges:
+    - cell: 4
+      direction: 1
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 11
+      direction: 1
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 32
+      direction: 1
+      kind: 1
+      ruleId: gate
+      bindings: []
+    - cell: 18
+      direction: 1
+      kind: 2
+      ruleId: gate
+      bindings:
+      - key: switches
+        cellIds:
+        - 6a46669f033b446d85ebba1410415f01
+    - cell: 25
+      direction: 1
+      kind: 2
+      ruleId: inverse-gate
+      bindings:
+      - key: switches
+        cellIds:
+        - 6a46669f033b446d85ebba1410415f01
+    player: 8
+    boxes: 0900000012000000
+  - id: ceb261b978334792a422dde48dc5459b
+    name: "05 \xB7 \u8BBE\u7F6E\u8FD0\u8F93\u65B9\u5411"
+    description: "\u6309\u94AE\u53D7\u538B\uFF1A\u8F6C\u5411\u683C\u5C06\u7BB1\u5B50\u5411\u4E0A\u9001\u4E00\u683C\uFF1B\u6309\u94AE\u91CA\u653E\uFF1A\u5411\u53F3\u9001\u4E00\u683C\u3002\u8BBE\u7F6E\u8DEF\u7EBF\u540E\u518D\u9001\u7BB1\u5B50\u3002"
+    width: 7
+    height: 5
+    cells:
+    - id: 54859ecc82ad45dab3f6ddc4179caded
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: f886546899d54bb49d10d905921d85a0
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: d3dd18ec5d2649c4afcae431ca160c59
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 543f62d688ee451a90c7e78abe8085b4
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: f25bf93701f94f1a9842135f33dee74b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: c44d390e51574a4b92df279975d349e3
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 55488e04e68d428c87fd57ea35b744d5
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 275966f70d0e497791480346946783a0
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 8c80ac287cd046f4bd6e394c38d7c038
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: acba2a473d3e4301916665736371d029
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: b26d9007d5d24fa7877dc388242a0ea6
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: efec3be2308c4e5eaceed8940ee1b3e9
+      ruleId: turn
+      rotation: 0
+      portalPair: 
+      bindings:
+      - key: switches
+        cellIds:
+        - 705d0df2c3ec449fb42620fd42f17c09
+    - id: 17ade6069e454a4a88c2c7206dd463dc
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 4fcc1f295aa8480481ed9547bf6f1a3e
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 0a48147393c34123993cd8161af5fde0
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 8757a580ca1149f9a890c98a7dc3c2f4
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 104407e93dc34a1e9a715f0d7a42ff73
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 3f2ca8284d964967a871b13eec5c7f19
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 43207274097f4965870d180358f91d0b
+      ruleId: goal
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 312418875f6f4ba4bb39bfd9e29e7b82
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 326b270abb5c4dc8bb61604ea72e9123
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: a291df9f61c34f89bef942111b37e5a1
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 705d0df2c3ec449fb42620fd42f17c09
+      ruleId: plate
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 59c33ec996e84f7eb583d21f518e38b9
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: d3326b93d42741109623082a1a161f85
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: ec2767497b3a4f6fa87d6f991a528e4c
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: cb54d71bfddd416fbef97e30a2e6f602
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 1840e29fec764c719ecce46d3fa6924b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 881c21238c474e6591a06f384933bd8b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 02108c4b81b64a87a2bee8ccf8b25209
+      ruleId: goal
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 5ef5429d822d40f3a1e920262eafb93a
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 5167309216f74b96a361c78774ebbd49
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 483962dc4f2647658bc9a8650d5d5faa
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: fe03d9c1b25e454381a131488f895903
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: e4d4e9bab9554423ba29b9e76b5dc1c9
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    edges: []
+    player: 8
+    boxes: 0f0000000a000000
+  - id: 27d68fe96e6b4eb088ad251d6e6aea7e
+    name: "06 \xB7 \u8C01\u80FD\u7ECF\u8FC7"
+    description: "\u7EFF\u8272\u5730\u5757\u53EA\u5141\u8BB8\u4EBA\u7269\u8FDB\u5165\u3002\u7BB1\u5B50\u9700\u8981\u8D70\u5176\u4ED6\u8DEF\u7EBF\uFF1B\u8FDB\u5165\u6761\u4EF6\u7531\u89C4\u5219\u8868\u5355\u914D\u7F6E\u3002"
+    width: 5
+    height: 5
+    cells:
+    - id: 31be9479e716409e83677e484f7320a6
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: c236b79838264ee8ae4cbbd91c7af2c2
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: c1d75e5081a2447ea6a3610cad88fcb0
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 33d255dacff04355bccbc0563fe13254
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 80b00cd6d38c4b51bf18a680423db5e5
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 0ffc7fc9457e442dbd8c213a92e755bc
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: eb07bf1e63d9409b9db418831335cc14
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 96b9ccf5e07b48e384422c9c8e0048cd
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 6f6169371738486381ff3cd4cdfce5bb
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 957858b2cd8341489171ea8ed271135b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 54894e5ee55d459e85b002278a77cdd6
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 90459400e70446e9a3737505516fbf03
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: a774d3ed8ec74de1a1517fadef6909fe
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: b5b44c9fc887486fa292beb0f3150da4
+      ruleId: selective
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 72b5102b68bd45c3bbc831eeda1499ed
+      ruleId: goal
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 7f021dd23ad9433b9f42b3230a7176b8
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: c53ef3e3c89341de950a474c6c3c0a29
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: e3388029e9174f3ca08f6b7e4bced275
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 8a3209b0759a42289a6b44d0e1c113c8
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 547e85fff21d410cb38abc893ee2023e
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: d09227f958364c3dba713670343c1354
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 727db17b867641fabf98d3862a9eb77f
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: c1f70eb51cc945439fc55384aeac4a6c
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: e3edb5eb4556409aacc78c65f5d9cdee
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: c34c6908e8a34bee968f20c859eeef04
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    edges: []
+    player: 11
+    boxes: 0c000000
+  - id: bfe55a1c04724d5bbc50dd8bc33e2a49
+    name: "07 \xB7 \u4E24\u7AEF\u76F8\u8FDE"
+    description: "\u7BB1\u5B50\u8FDB\u5165\u7D2B\u8272\u5165\u53E3\u4F1A\u5230\u8FBE\u540C\u7EC4\u51FA\u53E3\uFF1B\u4EBA\u7269\u53EF\u4EE5\u8D70\u8FC7\u4E24\u7AEF\uFF0C\u4F46\u4E0D\u4F1A\u4F20\u9001\u3002\u51FA\u53E3\u88AB\u5360\u7528\u65F6\u4F20\u9001\u53D7\u963B\u3002"
+    width: 7
+    height: 5
+    cells:
+    - id: 74e7ff6f3c9c40babcdc911ccc583700
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 06b62df9d4a94d5483624a20d3229a62
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: d5e0a9e7bd2741bcb6768e86e9552a60
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 99da28f7817f450eacb275c1f4dc000d
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: e7b748928c044f8d9b994bda683c8390
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 72c43b81cd594584b511e9c3d6526748
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: b598b231ff1b4daba53fa7ead391a350
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 42fee778a777484fa1962730550ff86b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: c49d148b68fc44efae4049dc5b56c7be
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 916171399ea2484fb743d1d489c1a52c
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 060596b18a884ffa8ff217ce6dc737ba
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 5f90a66e5b8e4cc987ec3bb619cc6661
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 12a853dde019429a89a854490abbfd41
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 98d199fa6554401ca6ad3354555d11a7
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: c90fc72d1aa942078d2df608f8077e04
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 6394d00fb67444e5a286db4583fe7c8f
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 9047324613e7419599ac344f67aa6159
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 62495b7f37004e63bf89b697ac130058
+      ruleId: portal-entrance
+      rotation: 0
+      portalPair: A
+      bindings: []
+    - id: 8ca4f2f1c6254e888af2eee28688a256
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 9baeb1e7fc8a4cb0bf51902dc8491e21
+      ruleId: portal-exit
+      rotation: 0
+      portalPair: A
+      bindings: []
+    - id: c09b545100b947b0b9344e78cc0059e4
+      ruleId: goal
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: f658b05de53c4a3d866ada82834777c5
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: ec55dca446df406e93feb6d6896d6bcb
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 310253dad631409a9917aed09936257c
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: f7262116d8534c28b37b3384164665b6
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 904ed3e1bbb2439aa0f52010a0a61231
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 6fd61dd4cffc40eabfb42db345bf29eb
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 38b0de01316a4ed9aac5a2ad1def2565
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: cd2826d3855f47eba3f01d17cf4047c0
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: d56fbd7ad7dd4dc49ea2daa443cbe3d2
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 5903cb2a80aa47868bc49711c551e24a
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 983a939a71dd45bbac0026d6669b09e1
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 31313df236bd4c91836a6e9039d8a0c9
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 97fc79c161334f368069e4073ec50137
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 89589edbc89c4e4e81fd5036e04617b3
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    edges:
+    - cell: 17
+      direction: 1
+      kind: 1
+      ruleId: gate
+      bindings: []
+    player: 15
+    boxes: 10000000
+  - id: abf726bcb44f475f90671983b0564d6f
+    name: "08 \xB7 \u7A7A\u6D1E\u7ED5\u884C"
+    description: "\u4EBA\u7269\u4E0D\u80FD\u8FDB\u5165\u7A7A\u6D1E\u3002\u7BB1\u5B50\u8FDB\u5165\u4F1A\u6389\u843D\u5E76\u5931\u8D25\uFF0C\u53EF\u6309
+      Z \u64A4\u9500\u3002\u5148\u8C03\u6574\u8DEF\u7EBF\u518D\u5F52\u4F4D\u3002"
+    width: 5
+    height: 5
+    cells:
+    - id: 5b6110b4549d4630b3894d0b91d3219f
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 565857054ad84a8ca63da6b7a431beac
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 74fd81cb7f6746b0b30ef79858a6224c
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 76d188b076b04f998d11dfbc11b254f0
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: ffad956cc39d4f3c8fb6ee79053355c3
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: cf6bb00ea02449fa96112f484e9c0847
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: b25a9bbce156490bb7c0bc06a1e5b46e
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 4c02ef8ed86c4ed8a96fc6a149d45eb5
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 77168a5206504bfda3e6320e8201483b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 4299bb259a1b42d1a919ae57fd50e8a7
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 5850ec9476c1438dbfe84c1b42a73c8a
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 6e4f8c49bf7f4c6f81db0316783d7b6b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: cf32f66f48584c4aa55653f564852a0c
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 03e09833616c4c71a1171f32f3dbc25b
+      ruleId: hole
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 09055f4e6670417c89696144e68d1158
+      ruleId: goal
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 338b0863cbb541158d3320e689e804b9
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: c6dbd0022a5f418bb634dc75f637bb50
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 1184bba52d994205ae613e616942d045
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: ef16f4651b0b40a79689c47072957a47
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: ea7be16fcce14c09ba8b3e3ed65eb108
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 6bb07cbc0ea140a482e3320fdc3ed990
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 43895aba59864115801afc8b46d5c79c
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: f7fa63f99f54494dadf35b79d2b3930f
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 816bba52f15040b68b7cec071a0e509b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 2ac35525fd6f4fdea47dd2beaafbc458
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    edges:
+    - cell: 8
+      direction: 0
+      kind: 1
+      ruleId: 
+      bindings: []
+    - cell: 7
+      direction: 0
+      kind: 1
+      ruleId: 
+      bindings: []
+    - cell: 6
+      direction: 0
+      kind: 1
+      ruleId: 
+      bindings: []
+    - cell: 5
+      direction: 0
+      kind: 1
+      ruleId: 
+      bindings: []
+    - cell: 9
+      direction: 0
+      kind: 1
+      ruleId: 
+      bindings: []
+    - cell: 6
+      direction: 1
+      kind: 1
+      ruleId: 
+      bindings: []
+    - cell: 1
+      direction: 1
+      kind: 1
+      ruleId: 
+      bindings: []
+    - cell: 5
+      direction: 1
+      kind: 1
+      ruleId: 
+      bindings: []
+    - cell: 1
+      direction: 0
+      kind: 1
+      ruleId: 
+      bindings: []
+    player: 11
+    boxes: 0c000000
+  - id: 5ea773eb67ef475e837ae26b0f1f0741
+    name: "09 \xB7 \u56DE\u4E0D\u53BB\u7684\u8DEF"
+    description: "\u7BB1\u5B50\u79BB\u5F00\u6A59\u8272\u9053\u8DEF\uFF0C\u9053\u8DEF\u7ACB\u5373\u574D\u584C\uFF1A\u8FD9\u6B21\u63A8\u52A8\u4EBA\u7269\u4E0D\u4F1A\u8DDF\u8FDB\u3002\u7ED5\u8DEF\u8C03\u6574\u7BB1\u5B50\u7684\u4E0B\u4E00\u6B21\u63A8\u52A8\u65B9\u5411\u3002"
+    width: 5
+    height: 5
+    cells:
+    - id: f438d29e66a54a1986e5f78c09fec18f
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: dfb41d7cfd70418e8c8c711fc221746b
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 3de405d8e72c4c01b9031ac7ef70e71e
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 716c0cc5dbbd4d84827193aaf3082f73
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 8376a98cc3aa445288c2f8bcd9e4ba4a
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 21cd16d33de5426d95c1146bc43849ce
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 21ef50b186514784ba7d70aa7778b452
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: b57cf8ec45c144fdab89a0965f59f036
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: bb381a9dbc7c4c1cbbe908df6a814d19
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: f2e0653ec9b54edabe17f0f57bbf0544
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 31f2e97413144212ba0ba6cdc0be4fa1
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 9518a239fe2447d0b6c8c97e867957a1
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: baa50ae10d444d4e8e168b26042aedda
+      ruleId: fragile
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: cfa4056601e34408940bcf9fbc4350d0
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 19eb98c9e5cb47e68a1ef7465ac4a291
+      ruleId: goal
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: dd1a48af1955444fb53d5b27d8018149
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 1c534c4f977a45c285e804e4283d8f04
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 10a8032d720448cc8f4b014e6a532f35
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 0287eb1f65b640f09d8d634a983559e9
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: ce8afa1c23784449b482c817f2c7f5c5
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 0ef377c7891043c79ab6c41a34f27281
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 6a2d2b9e71334a2d9f33ba8be266fbb8
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 9022a41ff2cb4377ae8579b8bf594bcb
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 7de6b3908438447c8fff2dc7ca4f96f6
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    - id: 488cd7971abb4da5940b475b34c8a524
+      ruleId: plain
+      rotation: 0
+      portalPair: 
+      bindings: []
+    edges: []
+    player: 11
+    boxes: 0c000000
+  selectedLevel: 8
