@@ -24,7 +24,7 @@ All model and texture paths below are relative to `addons/kaykit_dungeon_remaste
 | `Textures/dungeon_texture.png` | `texture/dungeon_texture.png` | Shared original gradient atlas |
 | `License.txt` | Repository root `LICENSE.txt` | Original license, retained verbatim |
 
-The original files are unmodified. No complete pack, unused candidate models, Pro/Extra content, or render-pipeline package is included. Inspected unused candidates are kept outside Unity's Assets directory in the workspace's `ArtResearch/KayKit` folder. `wall_arched` was rejected because its decorative arch is filled by a solid wall. `wall_doorway` has an actual stone opening, but its FBX also includes a separate `wall_doorway_door` wooden-door child that is absent from the OBJ preview. `ArtSetup` explicitly removes that child before fitting the stone frame or deriving its widened mesh. No material slot is removed: the door and the stone both use the same atlas.
+The original files are unmodified. No complete pack, unused candidate models, Pro/Extra content, or render-pipeline package is included. `wall_doorway` has an actual stone opening, but its FBX also includes a separate `wall_doorway_door` wooden-door child that is absent from the OBJ preview. `ArtSetup` explicitly removes that child before fitting the stone frame or deriving its widened mesh. No material slot is removed: the door and the stone both use the same atlas.
 
 ## Unity presentation
 

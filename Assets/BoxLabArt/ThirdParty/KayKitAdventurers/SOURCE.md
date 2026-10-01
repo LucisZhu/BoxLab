@@ -16,7 +16,7 @@ Author: Kay Lousberg. Pack: **KayKit: Adventurers Character Pack 1.0**.
 | `Textures/mage_texture.png` | `addons/kaykit_character_pack_adventures/Textures/mage_texture.png` | Original mage atlas, used by the generated Built-in Standard material. |
 | `LICENSE.txt` | `LICENSE.txt` | Original asset license. |
 
-Only this character and its atlas are imported. No other characters, separate weapon assets, full package archives, or research GLB are included in `Assets`. The original FBX is retained intact, including its authored animation takes and four embedded accessory objects. It is approximately 19.5 MB and is a reproducible authoring source, not a runtime dependency.
+Only this character and its atlas are imported. No other characters, separate weapon assets, or full package archives are included in `Assets`. The original FBX is retained intact, including its authored animation takes and four embedded accessory objects. It is approximately 19.5 MB and is a reproducible authoring source, not a runtime dependency.
 
 ## Project adaptation
 

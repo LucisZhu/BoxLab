@@ -25,6 +25,6 @@ Only these nine unchanged PNGs from the ZIP's `PNG/Default/` directory are inclu
 Runtime addresses are `BoxLabUI/Adventure/<filename without extension>`.
 `WorkshopTheme.cs` draws panel corners with IMGUI nine-slice borders; it creates a small set of tinted copies at runtime for readable dark panels and normal/hover/pressed/disabled button states. It preserves the source linework, highlights, rivets and corner brackets. Original PNG files are unmodified. No shader or rendering-pipeline package is required.
 
-The complete original ZIP and extracted candidate assets stay outside Unity's Assets directory in `ArtResearch/KenneyUIAdventure/`. Preview and sample images are not imported. No third-party font is imported; the app supplies its Chinese-capable font to the theme.
+Preview and sample images are not imported. No third-party font is imported; the app supplies its Chinese-capable font to the theme.
 
 Deleting this package is supported: the theme falls back to simple generated panels and buttons. The normal shipped appearance uses the nine original Adventure PNGs.
